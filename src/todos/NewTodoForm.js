@@ -16,8 +16,8 @@ const NewTodoForm = ({ todos, onCreatePressed }) => {
       />
       <button 
         onClick={() => {
-        const isDuplicateText = 
-          todos.some(todo.text === inputValue);
+          const isDuplicateText = 
+          todos.some(todo => todo.text === inputValue);
           if (!isDuplicateText) {
             onCreatePressed(inputValue);
             setInputValue('');
@@ -34,7 +34,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onCreatePressed: text =>dispatch(createTodo(text))
+  onCreatePressed: text => dispatch(createTodo(text)),
 });
 
-export default connect(mapStateToProps, mapStateToProps)(NewTodoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NewTodoForm);
