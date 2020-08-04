@@ -7,10 +7,10 @@ import './TodoList.css';
 
 const TodoList = ({ todos = [], onRemovePressed }) => {
   return (
-  <div className="list-wrapper">
-    <NewTodoForm />
-    {todos.map(todo => <TodoListItem todo ={todo} onRemovePressed={onRemovePressed}/>)}
-  </div>
+    <div className="list-wrapper">
+      <NewTodoForm />
+      {todos.map(todo => <TodoListItem todo ={todo} onRemovePressed={onRemovePressed}/>)}
+    </div>
   )
 }
 
