@@ -5,7 +5,6 @@ import {
   LOAD_TODOS_IN_PROGRESS,
   LOAD_TODOS_SUCCESS,
   LOAD_TODOS_FAILURE,
-  loadTodosFailure,
 } from './actions';
 
 export const isLoading = (state = false, action) => {
@@ -26,12 +25,8 @@ export const todos = (state = [], action) => {
 
   switch (type) {
     case CREATE_TODO: {
-      const { text } = payload;
-      const newTodo = {
-        text,
-        isCompleted: false,
-      };
-      return state.concat(newTodo);
+      const { todo } = payload;
+      return state.concat(todo);
     }
     case REMOVE_TODO: {
       const { text } = payload;
@@ -47,7 +42,7 @@ export const todos = (state = [], action) => {
       })
     }
     case LOAD_TODOS_SUCCESS: {
-      const{ todos }= payload;
+      const { todos } = payload;
       return todos;
     }
     case LOAD_TODOS_IN_PROGRESS:
