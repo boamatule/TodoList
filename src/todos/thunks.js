@@ -41,14 +41,14 @@ export const removeTodoRequest = id => async dispatch => {
     const response = await fetch(`http://localhost:8080/todos/${id}`, {
       method: 'delete'
     });
-    const removeTodo = await response.json();
-    dispatch(removeTodo(removeTodo));
+    const removedTodo = await response.json();
+    dispatch(removeTodo(removedTodo));
     } catch (e) {
     dispatch(displayAlert(e));
   }
 }
 
-export const markTodoASCompletedRequest = id => async dispatch => {
+export const markTodoAsCompletedRequest = id => async dispatch => {
   try {
     const response = await fetch(`http://localhost:8080/todos/${id}/completed`, {
       method: 'post'
@@ -62,4 +62,4 @@ export const markTodoASCompletedRequest = id => async dispatch => {
 
 export const displayAlert = text => () => {
   alert(text);
-};+
+};
