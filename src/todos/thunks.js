@@ -62,4 +62,4 @@ export const markTodoASCompletedRequest = id => async dispatch => {
 
 export const displayAlert = text => () => {
   alert(text);
-};
+};+
